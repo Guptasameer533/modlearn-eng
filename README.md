@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+```markdown
+# 📘 Modlearn
 
-First, run the development server:
+A scalable and interactive learning platform that allows admins to create structured courses (Course → Section → Unit → Chapter) and learners to enroll, view, and complete chapters containing various types of questions.
+
+Built with:
+- 🌐 Frontend: **Next.js**
+- 🔧 Backend: **Node.js + Express**
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+- Register/Login using JWT
+- Role-based access: `Admin` vs `Learner`
+- Protected routes and access control
+
+### 🧠 Course Management (Admin Panel)
+- Create & edit:
+  - Courses
+  - Sections under each course
+  - Units under each section
+  - Chapters under units
+- Add questions to chapters:
+  - Multiple Choice Questions (MCQ)
+  - Fill in the blanks
+  - Text-based answers
+  - (Bonus) Audio-based answers
+
+### 🎓 Learning Experience (Learner Panel)
+- Dashboard to view enrolled courses
+- Continue from last progress
+- Attempt chapter questions
+- Track progress (section/unit/chapter level)
+- Score summary after each chapter
+
+### 🧩 Question Metadata
+- Question text
+- Options (if applicable)
+- Correct answer
+- Media support (images/audio)
+
+
+## 🔧 Setup Instructions
+
+### 1️⃣ Clone the Repo
+
+```bash
+git clone https://github.com/your-username/modular-learning-platform.git
+cd modular-learning-platform
+````
+
+### 2️⃣ Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+* Create a `.env` file:
+
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/learning-platform
+JWT_SECRET=your_jwt_secret
+```
+
+* Start the backend:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Your backend will run on `http://localhost:5000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3️⃣ Frontend Setup
 
-## Learn More
+```bash
+cd ../frontend
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+* Create a `.env.local` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Start the frontend:
 
-## Deploy on Vercel
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Your frontend will run on `http://localhost:3000`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔒 Role-Based Access
+
+| Role    | Permissions                                    |
+| ------- | ---------------------------------------------- |
+| Admin   | Create/Edit Courses, Sections, Units, Chapters |
+| Learner | View, Enroll, Attempt chapters, Save Progress  |
+
+---
+
+* [Live Demo](https://modlearn-eng.vercel.app/)
+
+
+---
+
+
